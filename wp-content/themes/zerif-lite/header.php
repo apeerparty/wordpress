@@ -16,7 +16,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<style>
+.headerNameGroup{
+    float: right;
+    line-height: 34px;
+    position: relative;
+    left: 10px;
+}
+</style>
 <?php wp_head(); ?>
 
 <?php zerif_bottom_head_trigger(); ?>
@@ -87,7 +94,20 @@ if ( is_front_page() && ! is_customize_preview() ) :
 						if ( has_custom_logo() ) {
 
 							the_custom_logo();
-
+						?>	
+							<div class="headerNameGroup">
+								<a href=" <?php echo esc_url( home_url( '/' ) ) ?> ">
+									<?php bloginfo( 'title' ) ?>
+								</a>
+							<?php
+								$description = get_bloginfo( 'description', 'display' );
+							?>
+								<p class="site-description">
+									<?php echo $description; ?>
+								</p> 
+							</div>
+						<?php
+						
 						} else {
 
 						?>
